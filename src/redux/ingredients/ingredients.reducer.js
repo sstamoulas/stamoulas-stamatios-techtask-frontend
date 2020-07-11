@@ -19,6 +19,12 @@ const ingredientsReducer = (state = INITIAL_STATE, action) => {
         isFetching: false,
         ingredients: action.payload
       }
+    case IngredientsActionTypes.FETCH_INGREDIENTS_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        errorMessage: action.payload
+      }
     default:
       return state
   }
