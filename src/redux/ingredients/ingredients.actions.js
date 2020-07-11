@@ -8,3 +8,8 @@ export const fetchIngredientsSuccess = (ingredientsMap) => ({
   type: IngredientsActionTypes.FETCH_INGREDIENTS_SUCCESS,
   payload: ingredientsMap,
 })
+
+export const fetchIngredientsFailure = (errorMessage) => ({
+  type: IngredientsActionTypes.FETCH_INGREDIENTS_FAILURE,
+  payload: errorMessage,
+})
