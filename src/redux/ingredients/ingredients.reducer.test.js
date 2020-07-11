@@ -17,6 +17,20 @@ describe('ingredientsReducer', () => {
       ingredientsReducer(initialState, {
         type: IngredientsActionTypes.FETCH_INGREDIENTS_START
       }).isFetching
-    ).toBe(true);
-  });
+    ).toBe(true)
+  })
+
+  it('should set isFetching to false and ingredients to payload if fetchIngredientsSuccess action', () => {
+    const mockItems = [{ title: 'Cheese', 'use-by': '2020-01-08' }, { title: 'Bread', 'use-by': '2020-11-01' }]
+    expect(
+      ingredientsReducer(initialState, {
+        type: IngredientsActionTypes.FETCH_INGREDIENTS_SUCCESS,
+        payload: mockItems
+      })
+    ).toEqual({
+      ...initialState,
+      isFetching: false,
+      ingredients: mockItems
+    })
+  })
 })
