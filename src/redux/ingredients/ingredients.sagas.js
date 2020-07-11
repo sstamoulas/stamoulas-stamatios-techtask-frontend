@@ -5,13 +5,13 @@ import { fetchIngredientsSuccess, fetchIngredientsFailure } from './ingredients.
 
 export function* fetchIngredientsStart() {
   try {
-    const ingredientsMap = yield call(fetch, 'https://lb7u7svcm5.execute-api.ap-southeast-1.amazonaws.com/dev/ingredients')
+    const ingredientsMap = yield call(fetch, `${process.env.REACT_APP_BASE_URL}/ingredients`)
     yield put(fetchIngredientsSuccess(ingredientsMap))
   } catch (error) {
     yield put(fetchIngredientsFailure(error.message))
   }
 }
 
-export default function* rootSaga() {
+export default function* ingredientsSaga() {
   yield takeEvery('FETCH_INGREDIENTS_START', fetchIngredientsStart)
 }

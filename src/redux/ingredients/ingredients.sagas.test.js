@@ -6,7 +6,7 @@ import { fetchIngredientsSuccess, fetchIngredientsFailure } from './ingredients.
 
 describe('ingredients saga', () => {
   const generator = fetchIngredientsStart()
-  const url = 'https://lb7u7svcm5.execute-api.ap-southeast-1.amazonaws.com/dev/ingredients'
+  const url = `${process.env.REACT_APP_BASE_URL}/ingredients`
 
   it('should trigger on FETCH_INGREDIENTS_START', () => {
     expect(generator.next().value).toEqual(call(fetch, url))
