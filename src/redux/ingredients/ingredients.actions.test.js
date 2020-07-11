@@ -1,5 +1,5 @@
 import IngredientsActionTypes from './ingredients.types'
-import { fetchIngredientsStart } from './ingredients.actions'
+import { fetchIngredientsStart, fetchIngredientsSuccess } from './ingredients.actions'
 
 describe('fetchIngredientsStart action', () => {
   it('should create the fetchIngredientsStart action', () => {
@@ -8,3 +8,17 @@ describe('fetchIngredientsStart action', () => {
     )
   })
 })
+
+describe('fetchIngredientsSuccess action', () => {
+  it('should create the fetchIngredientsSuccess action', () => {
+    const mockIngredientsMap = {
+      'title': 'Cheese',
+      'use-by': '2020-01-08',
+    };
+
+    const action = fetchIngredientsSuccess(mockIngredientsMap);
+
+    expect(action.type).toEqual(IngredientsActionTypes.FETCH_INGREDIENTS_SUCCESS);
+    expect(action.payload).toEqual(mockIngredientsMap);
+  });
+});

@@ -1,5 +1,6 @@
 const IngredientsActionTypes = {
   FETCH_INGREDIENTS_START: 'FETCH_INGREDIENTS_START',
+  FETCH_INGREDIENTS_SUCCESS: 'FETCH_INGREDIENTS_SUCCESS',
 }
 
 export default IngredientsActionTypes
