@@ -2,7 +2,7 @@ import { call, put } from 'redux-saga/effects'
 
 import IngredientsActionTypes from './ingredients.types'
 import { fetchIngredientsStart } from './ingredients.sagas'
-import { fetchIngredientsSuccess } from './ingredients.actions';
+import { fetchIngredientsSuccess, fetchIngredientsFailure } from './ingredients.actions';
 
 describe('ingredients saga', () => {
   const generator = fetchIngredientsStart()
@@ -21,5 +21,14 @@ describe('ingredients saga', () => {
     expect(generator.next(mockIngredientsMap).value).toEqual(
       put(fetchIngredientsSuccess(mockIngredientsMap))
     )
+  })
+
+  it('should fire fetchIngredientsFailure if failure', () => {
+    const newGenerator = fetchIngredientsStart();
+    newGenerator.next();
+
+    expect(newGenerator.throw({ message: 'error' }).value).toEqual(
+      put(fetchIngredientsFailure('error'))
+    );
   })
 })
