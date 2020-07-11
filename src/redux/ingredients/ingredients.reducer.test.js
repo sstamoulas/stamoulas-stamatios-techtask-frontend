@@ -33,4 +33,17 @@ describe('ingredientsReducer', () => {
       ingredients: mockItems
     })
   })
+
+  it('should set isFetching to false and errorMessage to payload if fetchingIngredientsFailure', () => {
+    expect(
+      ingredientsReducer(initialState, {
+        type: IngredientsActionTypes.FETCH_INGREDIENTS_FAILURE,
+        payload: 'error'
+      })
+    ).toEqual({
+      ...initialState,
+      isFetching: false,
+      errorMessage: 'error'
+    })
+  })
 })
