@@ -7,6 +7,12 @@ const INITIAL_STATE = {
 
 const recipesReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case RecipesActionTypes.FETCH_RECIPES_START:
+      return {
+        ...state,
+        isFetching: true,
+        selectedIngredients: action.payload,
+      }
     default:
       return state
   }
