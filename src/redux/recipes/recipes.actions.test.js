@@ -1,5 +1,5 @@
 import RecipesActionTypes from './recipes.types'
-import { fetchRecipesStart, fetchRecipesSuccess } from './recipes.actions'
+import { fetchRecipesStart, fetchRecipesSuccess, fetchRecipesFailure } from './recipes.actions'
 
 describe('fetchRecipesStart action', () => {
   it('should create the fetchRecipesStart action', () => {
@@ -25,5 +25,14 @@ describe('fetchRecipesSuccess action', () => {
 
     expect(action.type).toEqual(RecipesActionTypes.FETCH_RECIPES_SUCCESS)
     expect(action.payload).toEqual(mockRecipesMap)
+  })
+})
+
+describe('fetchRecipesFailure action', () => {
+  it('should create the fetchRecipesFailure action', () => {
+    const action = fetchRecipesFailure('error')
+
+    expect(action.type).toEqual(RecipesActionTypes.FETCH_RECIPES_FAILURE)
+    expect(action.payload).toEqual('error')
   })
 })
