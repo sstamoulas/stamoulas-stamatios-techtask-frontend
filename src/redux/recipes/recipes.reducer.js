@@ -1,6 +1,7 @@
 import RecipesActionTypes from './recipes.types'
 
 const INITIAL_STATE = {
+  recipies: null,
   selectedIngredients: [],
   isFetching: false,
 }
@@ -12,6 +13,12 @@ const recipesReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isFetching: true,
         selectedIngredients: action.payload,
+      }
+    case RecipesActionTypes.FETCH_RECIPES_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        recipes: action.payload
       }
     default:
       return state

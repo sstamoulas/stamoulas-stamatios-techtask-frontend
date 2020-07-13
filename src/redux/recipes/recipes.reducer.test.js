@@ -2,6 +2,7 @@ import RecipesActionTypes from './recipes.types'
 import recipesReducer from './recipes.reducer'
 
 const initialState = {
+  recipies: null,
   selectedIngredients: [],
   isFetching: false,
 }
@@ -23,6 +24,29 @@ describe('recipesReducer', () => {
       ...initialState,
       isFetching: true,
       selectedIngredients: mockSelectedItems,
+    })
+  })
+
+  it('should set isFetching to false and recipes to payload if fetchRecipesSuccess action', () => {
+    const mockRecipes = {
+      'title': 'Ham and Cheese Toastie',
+      'ingredients': [
+        'Ham',
+        'Cheese',
+        'Bread',
+        'Butter'
+      ]
+    }
+
+    expect(
+      recipesReducer(initialState, {
+        type: RecipesActionTypes.FETCH_RECIPES_SUCCESS,
+        payload: mockRecipes
+      })
+    ).toEqual({
+      ...initialState,
+      isFetching: false,
+      recipes: mockRecipes
     })
   })
 })
