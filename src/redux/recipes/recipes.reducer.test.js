@@ -5,6 +5,7 @@ const initialState = {
   recipies: null,
   selectedIngredients: [],
   isFetching: false,
+  errorMessage: undefined,
 }
 
 describe('recipesReducer', () => {
@@ -47,6 +48,19 @@ describe('recipesReducer', () => {
       ...initialState,
       isFetching: false,
       recipes: mockRecipes
+    })
+  })
+
+  it('should set isFetching to false and errorMessage to payload if fetchingRecipesFailure', () => {
+    expect(
+      recipesReducer(initialState, {
+        type: RecipesActionTypes.FETCH_RECIPES_FAILURE,
+        payload: 'error'
+      })
+    ).toEqual({
+      ...initialState,
+      isFetching: false,
+      errorMessage: 'error'
     })
   })
 })

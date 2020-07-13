@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   recipies: null,
   selectedIngredients: [],
   isFetching: false,
+  errorMessage: undefined,
 }
 
 const recipesReducer = (state = INITIAL_STATE, action) => {
@@ -19,6 +20,12 @@ const recipesReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isFetching: false,
         recipes: action.payload
+      }
+    case RecipesActionTypes.FETCH_RECIPES_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        errorMessage: action.payload
       }
     default:
       return state
