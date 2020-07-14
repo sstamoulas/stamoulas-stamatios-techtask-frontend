@@ -1,4 +1,4 @@
-import { takeEvery, call, select } from 'redux-saga/effects'
+import { takeEvery, call, select, put } from 'redux-saga/effects'
 
 import { fetchRecipesSuccess } from './recipes.actions'
 
@@ -16,7 +16,9 @@ export function* fetchRecipesStart() {
   
   try {
     const urlParams = selectedIngredients.join(',')
-    const recipessMap = yield call(api, `${url}${urlParams}`)
+    const recipesMap = yield call(api, `${url}${urlParams}`)
+
+    yield put(fetchRecipesSuccess(recipesMap))
   } catch (error) {
   }
 }
