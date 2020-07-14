@@ -1,6 +1,6 @@
 import { takeEvery, call, select, put } from 'redux-saga/effects'
 
-import { fetchRecipesSuccess } from './recipes.actions'
+import { fetchRecipesSuccess, fetchRecipesFailure } from './recipes.actions'
 
 export const api = (url) => fetch(url).then(response => {
   if (response.ok) {
@@ -17,9 +17,10 @@ export function* fetchRecipesStart() {
   try {
     const urlParams = selectedIngredients.join(',')
     const recipesMap = yield call(api, `${url}${urlParams}`)
-
+    
     yield put(fetchRecipesSuccess(recipesMap))
   } catch (error) {
+    yield put(fetchRecipesFailure(error.message))
   }
 }
 
