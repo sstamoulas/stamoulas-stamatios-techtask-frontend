@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Component should render with given state from Redux store 1`] = `
+<div
+  className="card-container"
+>
+  <div
+    className="flip-card"
+  >
+    <div
+      className="flip-card-inner"
+    >
+      <div
+        className="flip-card-front"
+      >
+        <div>
+          Ham and Cheese Toastie
+        </div>
+      </div>
+      <div
+        className="flip-card-back"
+      >
+        <div>
+          Ingredients:
+        </div>
+        <ul
+          className="list-container"
+        >
+          <li
+            className="card-list-item"
+          >
+            Ham
+          </li>
+          <li
+            className="card-list-item"
+          >
+            Cheese
+          </li>
+          <li
+            className="card-list-item"
+          >
+            Bread
+          </li>
+          <li
+            className="card-list-item"
+          >
+            Butter
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    className="flip-card"
+  >
+    <div
+      className="flip-card-inner"
+    >
+      <div
+        className="flip-card-front"
+      >
+        <div>
+          Salad
+        </div>
+      </div>
+      <div
+        className="flip-card-back"
+      >
+        <div>
+          Ingredients:
+        </div>
+        <ul
+          className="list-container"
+        >
+          <li
+            className="card-list-item"
+          >
+            Lettuce
+          </li>
+          <li
+            className="card-list-item"
+          >
+            Tomato
+          </li>
+          <li
+            className="card-list-item"
+          >
+            Cucumber
+          </li>
+          <li
+            className="card-list-item"
+          >
+            Beetroot
+          </li>
+          <li
+            className="card-list-item"
+          >
+            Salad Dressing
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
