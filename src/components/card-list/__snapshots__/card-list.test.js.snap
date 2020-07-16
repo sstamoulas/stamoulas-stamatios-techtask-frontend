@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card List Component should render with given props 1`] = `
+<div
+  className="flip-card-back"
+>
+  <div>
+    Ingredients:
+  </div>
+  <ul
+    className="list-container"
+  >
+    <li
+      className="card-list-item"
+    >
+      Bread
+    </li>
+    <li
+      className="card-list-item"
+    >
+      Cheese
+    </li>
+    <li
+      className="card-list-item"
+    >
+      Butter
+    </li>
+  </ul>
+</div>
+`;
