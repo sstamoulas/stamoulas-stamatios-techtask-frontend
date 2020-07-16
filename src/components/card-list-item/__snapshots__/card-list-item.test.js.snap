@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card List Item Component should render with given props 1`] = `
+<li
+  className="card-list-item"
+>
+  Bread
+</li>
+`;
