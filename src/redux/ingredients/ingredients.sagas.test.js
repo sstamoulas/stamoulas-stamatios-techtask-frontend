@@ -1,7 +1,6 @@
 import { call, put } from 'redux-saga/effects'
 
-import IngredientsActionTypes from './ingredients.types'
-import { fetchIngredientsStart } from './ingredients.sagas'
+import { api, fetchIngredientsStart } from './ingredients.sagas'
 import { fetchIngredientsSuccess, fetchIngredientsFailure } from './ingredients.actions';
 
 describe('ingredients saga', () => {
@@ -9,7 +8,7 @@ describe('ingredients saga', () => {
   const url = `${process.env.REACT_APP_BASE_URL}/ingredients`
 
   it('should trigger on FETCH_INGREDIENTS_START', () => {
-    expect(generator.next().value).toEqual(call(fetch, url))
+    expect(generator.next().value).toEqual(call(api, url))
   })
 
   it('should fire fetchIngredientsSuccess if succesful', () => {
